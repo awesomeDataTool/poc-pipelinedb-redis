@@ -18,7 +18,7 @@ $$
   LANGUAGE plpgsql;
 
 CREATE VIEW t_products_count
-  WITH (action = transform, outputfunc=after_products_count_update)
+  WITH (action = transform, outputfunc=after_products_count_update  )
 AS
 SELECT (new).count
 FROM output_of('cv_products_count');
@@ -28,5 +28,7 @@ INSERT INTO products_stream VALUES (uuid_in(md5(random()::text || clock_timestam
 INSERT INTO products_stream VALUES (uuid_in(md5(random()::text || clock_timestamp()::text)::cstring));
 INSERT INTO products_stream VALUES (uuid_in(md5(random()::text || clock_timestamp()::text)::cstring));
 INSERT INTO products_stream VALUES (uuid_in(md5(random()::text || clock_timestamp()::text)::cstring));
+
+INSERT INTO products_stream VALUES (uuid_in(md5(random()::text || clock_timestamp()::text)::cstring))
 
 SELECT * FROM cv_products_count;
