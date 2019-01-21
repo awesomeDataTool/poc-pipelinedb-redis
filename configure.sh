@@ -5,7 +5,7 @@ EOF
 
 cat > $PGDATA/redis.conf << EOF
 redis.host = 'store'
-redis.port = 128
+redis.port = 6379
 EOF
 
 echo "include 'pipelinedb.conf'" >> $PGDATA/postgresql.conf
