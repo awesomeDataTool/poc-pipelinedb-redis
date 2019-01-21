@@ -4,6 +4,8 @@ networks:
   internal:
 
 services:
+  store:
+    image: redis:latest
   database:
     build: .
     command: [
